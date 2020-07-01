@@ -5,7 +5,7 @@ from numpy import array, ravel, log1p
 from cv2 import imread, cvtColor, calcHist, COLOR_BGR2RGB, \
     COLOR_BGR2HSV, COLOR_BGR2GRAY
 from sklearn.preprocessing import MinMaxScaler
-from radial_split import RadialSplitter
+from . import radial_split
 from joblib import Parallel, delayed
 
 
@@ -22,7 +22,7 @@ class ColorDensity(object):
     """Class that processes images and outputs color density features"""
 
     def __init__(self,
-                 splitter=RadialSplitter(),
+                 splitter=radial_split.RadialSplitter(),
                  color_model='RGB',
                  n_bins=8,
                  log_transform=False,
